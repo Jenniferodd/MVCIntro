@@ -1,0 +1,14 @@
+﻿@{
+  Layout = null;
+}
+
+@model AddData
+
+<p>Hello guest, let's add!</p>
+
+<form asp-controller="Home" asp-action="Add" method="post">
+  <p><input asp-for="x" /> + <input asp-for="y" /></p>
+  <p>Result: @Model.result</p>
+
+  <button type="submit">Submit</button>
+</form>

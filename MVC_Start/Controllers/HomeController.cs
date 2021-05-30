@@ -48,16 +48,31 @@ namespace MVC_Start.Controllers
       return View(contact);
     }
 
-    /// <summary>
-    /// Replicate the chart example in the JavaScript presentation
-    /// 
-    /// Typically LINQ and SQL return data as collections.
-    /// Hence we start the example by creating collections representing the x-axis labels and the y-axis values
-    /// However, chart.js expects data as a string, not as a collection.
-    ///   Hence we join the elements in the collections into strings in the view model
-    /// </summary>
-    /// <returns>View that will display the chart</returns>
-    public ViewResult DemoChart()
+
+    public IActionResult Add()
+    {
+        AddData addData = new AddData() { x = 2, y = 2, result = 4 };
+
+        return View(addData);
+    }
+
+    [HttpPost]
+    public IActionResult Add(AddData addData)
+    {
+        addData.result = addData.x + addData.y;
+        return View(addData);
+    }
+
+        /// <summary>
+        /// Replicate the chart example in the JavaScript presentation
+        /// 
+        /// Typically LINQ and SQL return data as collections.
+        /// Hence we start the example by creating collections representing the x-axis labels and the y-axis values
+        /// However, chart.js expects data as a string, not as a collection.
+        ///   Hence we join the elements in the collections into strings in the view model
+        /// </summary>
+        /// <returns>View that will display the chart</returns>
+        public ViewResult DemoChart()
     {
       string[] ChartLabels = new string[] { "Africa", "Asia", "Europe", "Latin America", "North America" };
       int[] ChartData = new int[] { 2478, 5267, 734, 784, 433 };

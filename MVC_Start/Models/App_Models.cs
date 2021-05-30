@@ -12,6 +12,13 @@ namespace MVC_Start.Models
     public string Phone { get; set; }
   }
 
+  public class AddData
+  {
+      public int x { get; set; }
+      public int y { get; set; }
+      public int result { get; set; }
+  }
+
   public class ChartModel
   {
     public string ChartType { get; set; }
